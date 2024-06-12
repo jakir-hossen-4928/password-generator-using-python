@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Generator</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <div>
+            <h1>Team Members</h1>
+            <h5>Jakir<br>Nuhan<br>Shovon<br>Mahir<br>Tahsin</h5>
+        </div>
+        <h1>Password Generator</h1>
+
+        {% if password %}
+        <div class="result">
+            <p>{{ password }}</p>
+        </div>
+        {% endif %}
+
+        <form method="POST">
+            <label for="length">Password Length:</label>
+            <input type="number" id="length" name="length" value="12" min="1" max="128" required>
+
+            <div class="checkbox-group">
+                <input type="checkbox" id="uppercase" name="uppercase" checked>
+                <label for="uppercase">Include Uppercase Letters</label>
+
+                <input type="checkbox" id="lowercase" name="lowercase" checked>
+                <label for="lowercase">Include Lowercase Letters</label>
+
+                <input type="checkbox" id="digits" name="digits" checked>
+                <label for="digits">Include Digits</label>
+
+                <input type="checkbox" id="special" name="special" checked>
+                <label for="special">Include Special Characters</label>
+            </div>
+
+            <button type="submit">Generate Password</button>
+        </form>
+    </div>
+</body>
+</html>
